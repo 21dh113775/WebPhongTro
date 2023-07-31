@@ -1,0 +1,203 @@
+﻿@model IEnumerable<WebPhongTro.Models.AspNetUser>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_ManageLayout.cshtml";
+}
+
+@*<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.UserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NormalizedUserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NormalizedEmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmailConfirmed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PasswordHash)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SecurityStamp)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ConcurrencyStamp)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhoneNumberConfirmed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TwoFactorEnabled)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LockoutEnd)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LockoutEnabled)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AccessFailedCount)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NormalizedUserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NormalizedEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmailConfirmed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PasswordHash)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SecurityStamp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ConcurrencyStamp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneNumberConfirmed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TwoFactorEnabled)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LockoutEnd)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LockoutEnabled)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AccessFailedCount)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>*@
+
+
+<div class="main-content">
+    <div class="page-header">
+        <h2 class="header-title">User</h2>
+        <div class="header-sub-title">
+            <nav class="breadcrumb breadcrumb-dash">
+                <a href="#" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Quản lý tài khoản</a>
+                <a class="breadcrumb-item active" href="#">Tài khoản</a>
+                @*                <a class="breadcrumb-item" href="#">E-commerce</a>
+                <span class="breadcrumb-item active">Orders List</span>*@
+            </nav>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <div class="row m-b-30">
+                <div class="col-lg-8">
+                    <div class="d-md-flex">
+                        
+                        
+                    </div>
+                </div>
+               
+            </div>
+            <div class="table-responsive">
+                <table class="table table-hover e-commerce-table">
+                    <thead>
+                        <tr>
+                            <th>
+                                <div class="checkbox">
+                                    <input id="checkAll" type="checkbox">
+                                    <label for="checkAll" class="m-b-0"></label>
+                                </div>
+                            </th>
+                            <th>ID</th>
+                            <th>Tên</th>
+                            <th>UserName</th>
+                            <th>Email</th>
+                            <th>PhoneNumber</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    <div class="checkbox">
+                                        <input id="@item.Id" type="checkbox">
+                                        <label for="@item.Id" class="m-b-0"></label>
+                                    </div>
+                                </td>
+                                <td>
+                                    @item.Id
+                                </td>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        @*<img class="img-fluid rounded" src="~/assetsManage/images/others/thumb-9.jpg" style="max-width: 60px" alt="">*@
+                                            <h6 class="m-b-0 m-l-10">@item.NormalizedUserName</h6>
+                                    </div>
+                                </td>
+                                <td>
+                                    <a href="/Users/Details/@item.Id">>@item.UserName</a>
+                                </td>
+                                <td>@item.Email</td>
+                                <td>@item.PhoneNumber</td>
+                                <td class="text-right">
+                                    <a href="/Users/Edit/@item.Id ">
+                                        <button class="btn btn-icon btn-hover btn-sm btn-rounded pull-right">
+                                            <i class="anticon anticon-edit"></i>
+                                        </button>
+                                    </a>
+                                    <a href="/Users/Delete/@item.Id ">
+                                        <button class="btn btn-icon btn-hover btn-sm btn-rounded text-danger">
+                                            <i class="anticon anticon-delete"></i>
+                                        </button>
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,99 @@
+﻿@model IEnumerable<WebPhongTro.Models.AspNetRole>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_ManageLayout.cshtml";
+}
+<div class="main-content">
+    <div class="page-header">
+        <h2 class="header-title">Danh sách quyền</h2>
+        <div class="header-sub-title">
+            <nav class="breadcrumb breadcrumb-dash">
+                <a href="#" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Quản lý tài khoản</a>
+                <a class="breadcrumb-item active" href="#">Quyền</a>
+@*                <a class="breadcrumb-item" href="#">E-commerce</a>
+                <span class="breadcrumb-item active">Orders List</span>*@
+            </nav>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <div class="row m-b-30">
+                <div class="col-lg-8">
+                    <div class="d-md-flex">
+                        
+                    </div>
+                </div>
+                <div class="col-lg-4 text-right">
+                    <a href="/Role/Create" class="text-white">
+                        <button class="btn btn-primary" >
+                            <i class="anticon anticon-plus-circle m-r-5"></i>
+                            <span>Thêm Quyền</a>
+                        </button>
+                    </a>
+                    
+                </div>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-hover e-commerce-table">
+                    <thead>
+                        <tr>
+                            <th>
+                                <div class="checkbox">
+                                    <input id="checkAll" type="checkbox">
+                                    <label for="checkAll" class="m-b-0"></label>
+                                </div>
+                            </th>
+                            <th>ID</th>
+                            <th>Tên</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach(var item in Model)
+                        {
+                            <tr class="show-item">
+                                <td>
+                                    <div class="checkbox">
+                                        <input id="@item.Id" type="checkbox">
+                                        <label for="@item.Id" class="m-b-0"></label>
+                                    </div>
+                                </td>
+                                <td>
+                                    @item.Id
+                                </td>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        @*<img class="img-fluid rounded" src="~/assetsManage/images/others/thumb-9.jpg" style="max-width: 60px" alt="">*@
+                                        <a href="/Management/Products/Details/@item.Id">
+                                            <h6 class="m-b-0 m-l-10">@item.Name</h6>
+                                        </a>
+                                        
+                                    </div>
+                                </td>
+                                
+
+                                <td class="text-right">
+                                    <a href="/Role/Edit/@item.Id ">
+                                        <button class="btn btn-icon btn-hover btn-sm btn-rounded pull-right">
+                                            <i class="anticon anticon-edit"></i>
+                                        </button>
+                                    </a>
+                                    <a href="/Role/Delete/@item.Id ">
+                                        <button class="btn btn-icon btn-hover btn-sm btn-rounded text-danger">
+                                            <i class="anticon anticon-delete"></i>
+                                        </button>
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                        
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+

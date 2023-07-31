@@ -1,0 +1,262 @@
+﻿
+@model WebPhongTro.Models.DTO.LoginModel
+
+@{
+  }
+@*<form class="w-40" asp-action="Login" method="post">
+    <h2 class="pb-10">Đăng Nhập</h2>
+    <div class="input-container">
+        <label asp-for="Username" class="w-40">Tên đăng nhập</label>
+        <input type="text" class="input" asp-for="Username">
+    </div>
+    <div class="message-box pd-x-28 error">
+        <span asp-validation-for="Username"></span>
+    </div>
+
+
+    <div class="input-container">
+        <label asp-for="Password" class="w-40">Mật khẩu</label>
+        <input type="password" class="input" asp-for="Password">
+    </div>
+    <div class="message-box pd-x-28 error">
+        <span asp-validation-for="Password"></span>
+    </div>
+
+
+    @if (TempData["msg"] != null)
+    {
+        <div class="alert mb-1">
+            @TempData["msg"]
+        </div>
+    }
+
+    <div class="input-container">
+        <button class="btn btn-default" type="submit" style="background-color:gold">Đăng Nhập</button>
+        
+    </div>
+</form>*@
+
+<style>
+    * {
+        margin: 0px;
+        padding: 0px;
+    }
+
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .container {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        background: linear-gradient(to bottom, rgb(6, 108, 100), rgb(14, 48, 122));
+        width: 100%;
+        height: 100%;
+        margin: 15% auto ;
+        border-radius: 15px;
+    }
+
+    .content-holder {
+        text-align: center;
+        color: white;
+        font-size: 20px;
+        font-weight: lighter;
+        letter-spacing: 2px;
+        margin-top: 10%;
+        padding: 50px;
+    }
+
+        .content-holder h2 {
+            font-size: 34px;
+            margin: 20px auto;
+        }
+
+        .content-holder p {
+            margin: 30px auto;
+        }
+
+        .content-holder button {
+            border: none;
+            font-size: 20px;
+            padding: 10px;
+            border-radius: 6px;
+            background-color: white;
+            width: 150px;
+            margin: 20px auto;
+        }
+
+    .box-2 {
+        background-color: white;
+        margin: 5px;
+        border-radius: 15px;
+    }
+
+    .login-form-container {
+        position: relative;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-60%);
+        text-align: center;
+        display: none;
+    }
+
+    .login-form-container h1 {
+            color: black;
+            font-size: 30px;
+            padding: 20px;
+    }
+
+    .input-field {
+        box-sizing: border-box;
+        font-size: 20px;
+        padding: 10px;
+        border-radius: 7px;
+        border: 1px solid rgb(168, 168, 168);
+        width: 250px;
+        outline: none;
+    }
+
+    .login-button {
+        box-sizing: border-box;
+        color: white;
+        font-size: 20px;
+        padding: 13px;
+        border-radius: 7px;
+        border: none;
+        width: 250px;
+        outline: none;
+        background-color: rgb(56, 102, 189);
+    }
+
+    .button-2 {
+        display: none;
+    }
+
+    .signup-form-container {
+        position: relative;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-60%);
+        text-align: center;
+        display: none;
+    }
+
+        .signup-form-container h1 {
+            color: black;
+            font-size: 30px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+    .signup-button {
+        box-sizing: border-box;
+        color: white;
+        font-size: 20px;
+        padding: 13px;
+        border-radius: 7px;
+        border: none;
+        width: 250px;
+        outline: none;
+        background-color: rgb(56, 189, 149);
+    }
+
+</style>
+
+    <!--Data or Content-->
+    <div class="box-1">
+        <div class="content-holder">
+            <h2>Chào mừng đến với phòng trọ HUFLIT</h2>
+
+            <button class="button-1" onclick="signup()">Đăng kí</button>
+            <button class="button-2" onclick="login()">Đăng Nhập</button>
+        </div>
+    </div>
+
+
+    <!--Forms-->
+    <div class="box-2">
+    <form class="login-form-container" asp-action="Login" method="post">
+            <h1>Đăng Nhập Tài Khoản</h1>
+        <input type="text" placeholder="Username" class="input-field" asp-for="Username">
+            <br><br>
+        <input type="password" placeholder="Password" class="input-field" asp-for="Password">
+            <br><br>
+        <button class="login-button" type="submit">Đăng Nhập</button>
+        </form>
+
+
+        <!--Create Container for Signup form-->
+        <div class="signup-form-container">
+            <h1>Đăng Kí Tài Khoản</h1>
+            <input id="username" type="text" placeholder="Username" class="input-field">
+            <br><br>
+            <input id="email" type="email" placeholder="Email" class="input-field">
+            <br><br>
+            <input id="password" type="password" placeholder="Password" class="input-field">
+            <br><br>
+            <input id="confirm" type="password" placeholder="Confirm Password" class="input-field">
+            <br><br>
+            <button class="signup-button" type="button" onclick="register()">Đăng kí</button>
+        </div>
+
+    </div>
+    <script>
+        function signup() {
+            document.querySelector(".login-form-container").style.cssText = "display:none;";
+            document.querySelector(".signup-form-container").style.cssText = "display: block;";
+            document.querySelector(".container").style.cssText = "background: linear-gradient(to bottom, rgb(56, 189, 149),  rgb(28, 139, 106));";
+            document.querySelector(".button-1").style.cssText = "display: none";
+            document.querySelector(".button-2").style.cssText = "display: block";
+
+        };
+
+        function login() {
+            document.querySelector(".signup-form-container").style.cssText = "display: none;";
+            document.querySelector(".login-form-container").style.cssText = "display: block;";
+            document.querySelector(".container").style.cssText = "background: linear-gradient(to bottom, rgb(6, 108, 224),  rgb(14, 48, 122));";
+            document.querySelector(".button-2").style.cssText = "display: none";
+            document.querySelector(".button-1").style.cssText = "display: block";
+
+        };
+        function register() {
+         
+            var username= document.getElementById('username');
+            console.log(username.value);
+            var email = document.getElementById('email');
+            console.log(email.value);
+            var password = document.getElementById('password');
+            console.log(password.value);
+            var confirm = document.getElementById('confirm');
+            console.log(confirm.value);
+            if(password.value != confirm.value)
+            {
+                alert("Mật khẩu không trùng khớp")
+            }
+            else{
+                var data = {
+                   email:email.value,
+                   username: username.value,
+                   password:password.value,
+                    passwordconfirm: confirm.value
+                };
+                console.log(data);
+                $.ajax({
+                    url: "/UserAuthentication/Register",
+                    type: "POST",
+                    data: JSON.stringify(data),
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (response) {
+                        alert("Thành công");
+                        window.location.href = "/"
+                    },
+                    error: function (xhr, status, error) {
+                        alert("khong thanh cong");
+                    }
+                });
+            }
+        };
+        
+    </script>
+ 
+ 
