@@ -1,0 +1,157 @@
+﻿@model IEnumerable<WebPhongTro.Models.Phong>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_ManageLayout.cshtml";
+}
+
+@*<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TenPhong)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DienTich)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GiaPhong)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TrangThai)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HinhAnh)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenPhong)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DienTich)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GiaPhong)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TrangThai)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HinhAnh)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdPhong">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IdPhong">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdPhong">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>*@
+<div class="main-content">
+    <div class="page-header">
+        <h2 class="header-title">Danh Sách Phòng</h2>
+        <div class="header-sub-title">
+            <nav class="breadcrumb breadcrumb-dash">
+                <a href="#" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Quản lí Phòng</a>
+                <a class="breadcrumb-item active" href="#">Phòng</a>
+                @*                <a class="breadcrumb-item" href="#">E-commerce</a>
+                <span class="breadcrumb-item active">Orders List</span>*@
+            </nav>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <div class="row m-b-30">
+                <div class="col-lg-8">
+                    <div class="d-md-flex">
+                    </div>
+                </div>
+                <div class="col-lg-4 text-right">
+                    <a href="/Phongs/Create" class="text-white">
+                        <button class="btn btn-primary">
+                            <i class="anticon anticon-plus-circle m-r-5"></i>
+                            <span>Thêm Phòng</span>
+                        </button>
+                    </a>
+
+                </div>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-hover e-commerce-table">
+                    <thead>
+                        <tr>
+                            <th>
+                                <div class="checkbox">
+                                    <input id="checkAll" type="checkbox">
+                                    <label for="checkAll" class="m-b-0"></label>
+                                </div>
+                            </th>
+                            <th>ID</th>
+                            <th>Tên Phòng</th>
+                            <th>Diện Tích</th>
+                            <th>Giá Phòng</th>
+                            <th>Trạng Thái</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    <div class="checkbox">
+                                        <input id="@item.IdPhong" type="checkbox">
+                                        <label for="@item.IdPhong" class="m-b-0"></label>
+                                    </div>
+                                </td>
+                                <td>
+                                    @item.IdPhong
+                                </td>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        @*<img class="img-fluid rounded" src="~/assetsManage/images/others/thumb-9.jpg" style="max-width: 60px" alt="">*@
+                                        <a href="/Phongs/Details/@item.IdPhong"></a>
+                                        <h6 class="m-b-0 m-l-10">@item.TenPhong</h6>
+
+                                    </div>
+                                </td>
+                                
+                               
+                                <td>@item.DienTich</td>
+                                <td>@item.GiaPhong</td>
+                                <td>
+                                    @item.TrangThai
+                                </td>
+                                <td class="text-right">
+                                    <a href="/Phongs/Edit/@item.IdPhong ">
+                                        <button class="btn btn-icon btn-hover btn-sm btn-rounded pull-right">
+                                            <i class="anticon anticon-edit"></i>
+                                        </button>
+                                    </a>
+                                    <a href="/Phongs/Delete/@item.IdPhong">
+                                        <button class="btn btn-icon btn-hover btn-sm btn-rounded text-danger">
+                                            <i class="anticon anticon-delete"></i>
+                                        </button>
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

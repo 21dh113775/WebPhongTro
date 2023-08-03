@@ -1,4 +1,6 @@
-﻿@{
+﻿@model IEnumerable<WebPhongTro.Models.Phong>
+@{
+
     Layout = "_Layout";
 }
 <section class="search-bar">
@@ -9,146 +11,21 @@
     </form>
 </section>
 <section class="movies">
-    <div class="movie-card" onclick="window.location.href='/movie-detail.html'">
-        <div class="movie-image">
-           <img src="~/images/Phongtro8.jpg">
+    
+    @foreach(var item in Model)
+    {
+        <div class="movie-card" onclick="window.location.href='/Home/Details/@item.IdPhong'">
+            <div class="movie-image">
+                <img src="~/images/@item.HinhAnh">
+            </div>
+            <div class="movie-info">
+                <h4>Tên Phòng: @item.TenPhong</h4>
+                <h4>Diện Tích: @item.DienTich</h4>
+                <h4>Giá Phòng: @string.Format("{0:#,##0}", item.GiaPhong) VNĐ</h4>
+                <h4>Trạng Thái: @item.TrangThai</h4>
+            </div>
         </div>
-        <div class="movie-info">
-            <h4>Phòng 1</h4>
-            <h4>Action, Adventure</h4>  
-            <h4>John doe, max </h4>
-            <h4>director 1</h4>
-        </div>
-    </div>
-
-    <div class="movie-card">
-        <div class="movie-image">
-            <img src="~/images/phongtro10.jpg">
-        </div>
-        <div class="movie-info">
-            <h4>Phòng 2</h4>
-            <h4>Action, Adventure</h4>
-            <h4>John doe, max </h4>
-            <h4>director 1</h4>
-        </div>
-    </div>
-
-
-    <div class="movie-card">
-        <div class="movie-image">
-            <img src="~/images/phongtro15.jpg">
-        </div>
-        <div class="movie-info">
-            <h4>Phòng 3</h4>
-            <h4>Action, Adventure</h4>
-            <h4>John doe, max,anna, ralph, dorian </h4>
-            <h4>director 1,director 2,director 3</h4>
-        </div>
-    </div>
-
-
-    <div class="movie-card">
-        <div class="movie-image">
-            <img src="~/images/phongtro18.jpg">
-        </div>
-        <div class="movie-info">
-            <h4>Phòng 4</h4>
-            <h4>Action, Adventure</h4>
-            <h4>John doe, max </h4>
-            <h4>director 1</h4>
-        </div>
-    </div>
-
-
-    <div class="movie-card">
-        <div class="movie-image">
-            <img src="~/images/phongtro8.jpg">
-        </div>
-        <div class="movie-info">
-            <h4>Phòng 5</h4>
-            <h4>Action, Adventure</h4>
-            <h4>John doe, max </h4>
-            <h4>director 1</h4>
-        </div>
-    </div>
-
-
-    <div class="movie-card">
-        <div class="movie-image">
-            <img src="~/images/phongtro9.jpg">
-        </div>
-        <div class="movie-info">
-            <h4>Movie 2</h4>
-            <h4>Action, Adventure</h4>
-            <h4>John doe, max </h4>
-            <h4>director 1</h4>
-        </div>
-    </div>
-
-
-    <div class="movie-card">
-        <div class="movie-image">
-            <img src="~/images/phongtro4.jpg">
-        </div>
-        <div class="movie-info">
-            <h4>Movie 2</h4>
-            <h4>Action, Adventure</h4>
-            <h4>John doe, max </h4>
-            <h4>director 1</h4>
-        </div>
-    </div>
-
-
-    <div class="movie-card">
-        <div class="movie-image">
-            <img src="~/images/phongtro4.jpg">
-        </div>
-        <div class="movie-info">
-            <h4>Movie 2</h4>
-            <h4>Action, Adventure</h4>
-            <h4>John doe, max </h4>
-            <h4>director 1</h4>
-        </div>
-    </div>
-
-
-
-    <div class="movie-card">
-        <div class="movie-image">
-            <img src="~/images/phongtro4.jpg">
-        </div>
-        <div class="movie-info">
-            <h4>Movie 2</h4>
-            <h4>Action, Adventure</h4>
-            <h4>John doe, max </h4>
-            <h4>director 1</h4>
-        </div>
-    </div>
-
-
-    <div class="movie-card">
-        <div class="movie-image">
-            <img src="~/images/phongtro4.jpg">
-        </div>
-        <div class="movie-info">
-            <h4>Movie 2</h4>
-            <h4>Action, Adventure</h4>
-            <h4>John doe, max </h4>
-            <h4>director 1</h4>
-        </div>
-    </div>
-
-    <div class="movie-card">
-        <div class="movie-image">
-            <img src="~/images/phongtro4.jpg">
-        </div>
-        <div class="movie-info">
-            <h4>Movie 2</h4>
-            <h4>Action, Adventure</h4>
-            <h4>John doe, max </h4>
-            <h4>director 1</h4>
-        </div>
-    </div>
+    }
 </section>
 
 <div class="pagination">

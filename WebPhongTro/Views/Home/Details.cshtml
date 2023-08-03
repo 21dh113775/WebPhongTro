@@ -1,0 +1,24 @@
+﻿@model WebPhongTro.Models.Phong
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+ 
+ 
+<div class="movie-detail w-80 m-auto">
+    <div class="img-container">
+        <img alt="image" src="/hinhanhphong/@Model.HinhAnh" style="width:500px">
+    </div>
+
+    <div class="detail-container">
+        <h3>Tên Phòng:@Model.TenPhong</h3>
+        <h4>Diện tích:@Model.DienTich m<sup>2</sup></h4>
+        <h4>Giá Phòng: @string.Format("{0:#,##0}", Model.GiaPhong) VNĐ</h4>
+        <h4>Trạng Thái:@Model.TrangThai</h4>
+    </div>
+</div>
+<div class="w-80 m-auto">
+    <a href="/Home/Index" class="btn btn-default">Back</a>
+</div>

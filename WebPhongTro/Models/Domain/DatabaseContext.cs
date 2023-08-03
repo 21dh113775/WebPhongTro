@@ -9,8 +9,6 @@ namespace WebPhongTro.Models.Domain
         {
             
         }
-        public DbSet<Genre> Genre { get; set; }
-        public DbSet<RoomGenre> RoomGenre { get; set; }
-        public DbSet<Phong> Phong { get; set; }
+       
     }
 }
