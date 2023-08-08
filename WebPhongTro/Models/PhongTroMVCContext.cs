@@ -208,13 +208,11 @@ namespace WebPhongTro.Models
                 entity.Property(e => e.HinhAnh).IsUnicode(false);
 
                 entity.Property(e => e.TenPhong)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
+                    .HasMaxLength(100)
                     .HasColumnName("ten_phong");
 
                 entity.Property(e => e.TrangThai)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
+                    .HasMaxLength(100)
                     .HasColumnName("trang_thai");
             });
 
@@ -232,8 +230,7 @@ namespace WebPhongTro.Models
                 entity.Property(e => e.IdPhong).HasColumnName("id_phong");
 
                 entity.Property(e => e.TenVatdung)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
+                    .HasMaxLength(100)
                     .HasColumnName("ten_vatdung");
 
                 entity.HasOne(d => d.IdPhongNavigation)

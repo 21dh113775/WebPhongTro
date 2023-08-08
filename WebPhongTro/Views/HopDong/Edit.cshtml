@@ -1,0 +1,49 @@
+﻿@model WebPhongTro.Models.HopDong
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_ManageLayout.cshtml";
+}
+
+<div class="main-content">
+<h1>Edit</h1>
+
+<h4>HopDong</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="IdHopdong" />
+            <div class="form-group">
+                <label asp-for="IdPhong" class="control-label"></label>
+                <select asp-for="IdPhong" class="form-control" asp-items="ViewBag.TenPhong"></select>
+                <span asp-validation-for="IdPhong" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdKhach" class="control-label"></label>
+                <input asp-for="IdKhach" class="form-control" />
+                <span asp-validation-for="IdKhach" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NgayBatDau" class="control-label"></label>
+                <input asp-for="NgayBatDau" class="form-control" />
+                <span asp-validation-for="NgayBatDau" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NgayKetThuc" class="control-label"></label>
+                <input asp-for="NgayKetThuc" class="form-control" />
+                <span asp-validation-for="NgayKetThuc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+</div>

@@ -12,7 +12,7 @@ namespace WebPhongTro.Controllers
         {
             _phongTroMVCContext = phongTroMVCContext;
         }
-        public IActionResult Index(string name)
+        public IActionResult Index()
         {
            
             var phongs = _phongTroMVCContext.Phongs;

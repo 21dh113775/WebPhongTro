@@ -5,59 +5,7 @@
     Layout = "~/Views/Shared/_ManageLayout.cshtml";
 }
 
-@*<h1>Index</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.TenPhong)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DienTich)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.GiaPhong)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TrangThai)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.HinhAnh)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.TenPhong)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DienTich)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.GiaPhong)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TrangThai)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.HinhAnh)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.IdPhong">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.IdPhong">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.IdPhong">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>*@
 <div class="main-content">
     <div class="page-header">
         <h2 class="header-title">Danh Sách Phòng</h2>
@@ -147,7 +95,6 @@
                                 </td>
                             </tr>
                         }
-
 
                     </tbody>
                 </table>

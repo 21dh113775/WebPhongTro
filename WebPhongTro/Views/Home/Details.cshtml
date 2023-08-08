@@ -9,16 +9,69 @@
  
 <div class="movie-detail w-80 m-auto">
     <div class="img-container">
-        <img alt="image" src="/hinhanhphong/@Model.HinhAnh" style="width:500px">
+        <img alt="image" src="/hinhanhphong/@Model.HinhAnh" style="width:550px">
     </div>
 
+    <style>
+        /* Style cho ảnh */
+        .img-container img {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+            transition: 0.3s ease;
+        }
+
+        .img-container img {
+            max-width: calc(100% - 20px);
+        }
+
+        /* Style cho thông tin */
+        .detail-container {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+        }
+
+        h3, h4 {
+            font-weight: 600;
+            color:black;
+        }
+
+        /* Style cho nút */
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: 0.3s ease;
+        }
+
+            .btn:hover {
+                transform: scale(1.1);
+            }
+
+        .btn {
+            border-radius: 4px;
+            padding: 12px 24px;
+            transition: all 0.3s ease;
+        }
+
+             
+      
+    </style>
+    
     <div class="detail-container">
-        <h3>Tên Phòng:@Model.TenPhong</h3>
-        <h4>Diện tích:@Model.DienTich m<sup>2</sup></h4>
-        <h4>Giá Phòng: @string.Format("{0:#,##0}", Model.GiaPhong) VNĐ</h4>
-        <h4>Trạng Thái:@Model.TrangThai</h4>
+        <h3 class="text3">Tên Phòng:@Model.TenPhong</h3>
+        <h4 class="text4">Diện tích:@Model.DienTich m<sup>2</sup></h4>
+        <h4 class="text5">Giá Phòng: @string.Format("{0:#,##0}", Model.GiaPhong) VNĐ</h4>
+        <h4 class="text6">Trạng Thái:@Model.TrangThai</h4>
     </div>
 </div>
-<div class="w-80 m-auto">
+<div class="nut">
     <a href="/Home/Index" class="btn btn-default">Back</a>
 </div>

@@ -1,0 +1,83 @@
+﻿@model WebPhongTro.Models.AspNetUser
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+ 
+<style>
+    .avatar {
+        width: 200px;
+        transform: scale(1.1);
+    }
+
+    .info h2,
+    .info p {
+        font-size: 30px;
+    }
+
+    .profile {
+        text-align: center;
+    }
+
+    .update:hover {
+        background: #eee;
+    }
+
+    .back:hover {
+        color: red;
+    }
+
+    .document-link {
+        display: inline-block;
+        padding: 10px 20px;
+        background: #007bff;
+        color: #fff;
+        border-radius: 4px;
+        /* Các css khác */
+    }
+
+        .document-link:hover {
+            background: #0062cc;
+        }
+
+    .document-links {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .back:hover {
+        background: #EEE8AA;
+    }
+    .back {
+        display: block;
+        margin-right:100%;
+        
+    }
+</style>
+<div class="profile">
+
+    <img src="~/hinhanhphong/user.jpg" class="avatar">
+    <div class="info">
+
+        <h2>Tên: Nguyễn Văn A</h2>
+        <br />
+        <p>Ngày sinh: 01/01/1990</p>
+        <br />
+        <p>SĐT: 0123456789</p>
+        <br />
+        <p>Phòng: 101 - Phòng A</p>
+        <br />
+        <br />
+        <a href="#" class="document-link ">Hợp Đồng</a>
+
+        <a href="#" class="document-link ">Hóa Đơn</a>
+    </div>
+    <br/>
+    <br/>
+    <button class="update">Cập nhật thông tin</button>
+    <br/>
+    <a href="/Home/Index" class="back">Quay lại</a>
+    
+
+</div>

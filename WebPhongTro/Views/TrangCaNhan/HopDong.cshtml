@@ -1,0 +1,26 @@
+﻿@model WebPhongTro.Models.AspNetUser
+@{
+    ViewData["Title"] = "HopDong";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="movie-detail w-80 m-auto">
+
+    <div class="detail-container">
+        @foreach(var item in Model.IdHds)
+        {
+            <h4>@item.IdHopdong</h4>
+            <br />
+            @foreach(var user in item.IdUsers)
+            {
+                <h4>@user.UserName</h4>
+                <br />
+            }
+        }
+
+    </div>
+</div>
+<div class="w-80 m-auto">
+    <a href="/Home/Index" class="btn btn-default">Back</a>
+</div>
+

@@ -1,0 +1,83 @@
+﻿@model WebPhongTro.Models.HopDong
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_ManageLayout.cshtml";
+}
+<div class="main-content">
+<h1>Create</h1>
+
+<h4>HopDong</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form  asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="IdHopdong" class="control-label"></label>
+                <input asp-for="IdHopdong" class="form-control" />
+                <span asp-validation-for="IdHopdong" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                    <select class="form-control">
+                        <option value="" selected>Chọn phòng</option>
+                        @foreach (var item in ViewBag.Phong)
+                        {
+                            <option value="@item.IdPhong">@item.TenPhong</option>
+                        }
+                    </select>
+            </div>
+                <div id="divselect" class="form-group" count="@ViewBag.CountUser">
+
+                    <select class="form-control" name="idUsers">
+                        <option value="" selected>Chọn Người Thuê Trọ</option>
+                        @foreach(var item in ViewBag.User)
+                        {
+                            <option value="@item.Id" >@item.UserName</option>
+                        }
+                    </select>
+                    <br/>
+                    <a id="addbutton" href="# " onclick="addNew()">
+                        Thêm
+                    </a>
+             </div>
+             <div id="newdiv">
+
+             </div>
+            <div class="form-group">
+                <label asp-for="NgayBatDau" class="control-label"></label>
+                <input asp-for="NgayBatDau" class="form-control" />
+                <span asp-validation-for="NgayBatDau" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NgayKetThuc" class="control-label"></label>
+                <input asp-for="NgayKetThuc" class="form-control" />
+                <span asp-validation-for="NgayKetThuc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+</div>
+@section Scripts{ 
+    <script>
+        function addNew() {
+            var divSelect = document.getElementById("divselect");
+            
+            if (divSelect.children[0].value != "" && divSelect.getAttribute("count") > 1) {
+                var newDiv = divSelect.cloneNode(true);
+                var div = document.getElementById("newdiv");
+                div.appendChild(newDiv);
+            }
+            else{
+                alert("Chưa chọn hoặc User chỉ có 1 người");
+            }
+        }
+    </script>
+}
