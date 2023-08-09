@@ -33,7 +33,7 @@ body {
 .logo {
     letter-spacing: 0.25rem;
     text-transform: uppercase;
-    font-size: 1.4rem;
+    font-size: 90px;
     font-weight: bold;
     color: rgb(25, 25, 25);
 }
@@ -129,6 +129,7 @@ body {
     flex-direction: column;
     box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
     cursor: pointer;
+    border-radius: 5px;
     /* background-color: yellow; */
 }
 
@@ -174,6 +175,11 @@ footer {
     font-family: var(--font-mukta);
     padding: 1% 2%;
     text-align: right;
+}
+:root {
+    --footer-height: 5rem;
+    --footer-color: #333;
+    --footer-padding: 1rem;
 }
 
 /* utilities start */
@@ -260,6 +266,7 @@ footer {
 @media (max-width: 920px) {
     .movie-card {
         flex-basis: 21%;
+        border-radius: 5px;
     }
 }
 

@@ -30,7 +30,7 @@ namespace WebPhongTro.Controllers
                 return NotFound();
             }
 
-            var phong = await _phongTroMVCContext.Phongs
+            var phong = await _phongTroMVCContext.Phongs.Include(p => p.VatDungs)
                 .FirstOrDefaultAsync(m => m.IdPhong == id);
             if (phong == null)
             {

@@ -70,6 +70,13 @@
         <h4 class="text4">Diện tích:@Model.DienTich m<sup>2</sup></h4>
         <h4 class="text5">Giá Phòng: @string.Format("{0:#,##0}", Model.GiaPhong) VNĐ</h4>
         <h4 class="text6">Trạng Thái:@Model.TrangThai</h4>
+        <h4> Danh Sách Vật Dụng: </h4>
+         
+        @foreach(var item in Model.VatDungs)
+        {
+          <h9 class="text6">  @item.TenVatdung</h9>
+          <br />
+        }
     </div>
 </div>
 <div class="nut">
