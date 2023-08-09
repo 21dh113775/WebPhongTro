@@ -1,9 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using System.Data;
 using WebPhongTro.Models.DTO;
 using WebPhongTro.Repositories.Abstract;
 
 namespace WebPhongTro.Controllers
 {
+ 
     public class UserAuthenticationController : Controller
     {
         private IUserAuthenticationService authService;

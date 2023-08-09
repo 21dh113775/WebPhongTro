@@ -4,10 +4,10 @@
     Layout = "_Layout";
 }
 <section class="search-bar">
-    <form>
+    <form asp-action="Index" method="post">
          
-        <input type="text" placeholder="search here">
-        <button type="submit"><i class="fa fa-search"></i></button>
+        <input type="text" placeholder="search here" name="timkiem">
+        <input type="submit" class="btn" value="Tìm kiếm" style="background:Black"> </input>
     </form>
 </section>
 <section class="movies">
@@ -20,7 +20,7 @@
             </div>
             <div class="movie-info">
                 <h4>Tên Phòng: @item.TenPhong</h4>
-                <h4>Diện Tích: @item.DienTich</h4>
+                <h4>Diện Tích: @item.DienTich m<sup>2</sup></h4>
                 <h4>Giá Phòng: @string.Format("{0:#,##0}", item.GiaPhong) VNĐ</h4>
                 <h4>Trạng Thái: @item.TrangThai</h4>
             </div>

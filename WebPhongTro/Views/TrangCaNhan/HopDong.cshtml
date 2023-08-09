@@ -11,11 +11,11 @@
     <div class="detail-container">
         @foreach(var item in Model.IdHds)
         {
-            <h4>@item.IdHopdong</h4>
+            <h4>Ngày :@item.NgayBatDau - @item.NgayKetThuc </h4>
             <br />
             @foreach(var user in item.IdUsers)
             {
-                <h4>@user.UserName</h4>
+                <h4>Tên Tài khoản : @user.UserName</h4>
                 <br />
             }
         }

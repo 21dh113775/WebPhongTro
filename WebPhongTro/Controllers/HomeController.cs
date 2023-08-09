@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿        using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WebPhongTro.Models;
 
@@ -38,6 +38,20 @@ namespace WebPhongTro.Controllers
             }
 
             return View(phong);
+        }
+        [HttpPost]
+        public IActionResult Index(string timkiem)
+        {
+            if(timkiem != null)
+            {
+                var phongs = _phongTroMVCContext.Phongs.Where(p => p.TenPhong == timkiem);
+                return View(phongs);
+            }  else
+            {
+                var phongs = _phongTroMVCContext.Phongs;
+                return View(phongs);
+            }    
+          
         }
     }
 }

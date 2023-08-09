@@ -1,9 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Data;
 using WebPhongTro.Models;
 
 namespace WebPhongTro.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class PhanQuyenController : Controller
     {
         private readonly PhongTroMVCContext _context;
