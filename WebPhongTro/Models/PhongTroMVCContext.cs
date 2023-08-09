@@ -136,8 +136,6 @@ namespace WebPhongTro.Models
                     .HasColumnType("date")
                     .HasColumnName("ngay_lap");
 
-                entity.Property(e => e.SoTien).HasColumnName("so_tien");
-
                 entity.HasOne(d => d.IdHopdongNavigation)
                     .WithMany(p => p.HoaDons)
                     .HasForeignKey(d => d.IdHopdong)

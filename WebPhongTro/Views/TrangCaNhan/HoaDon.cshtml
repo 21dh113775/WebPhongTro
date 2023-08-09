@@ -1,0 +1,94 @@
+﻿
+@{
+    ViewData["Title"] = "HoaDon";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th, td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    td {
+        font-size: 0.9em;
+    }
+
+    tbody tr:hover {
+        background-color: #f5f5f5;
+    }
+
+    tbody tr:hover {
+        background: #eee;
+        transform: scale(1.01);
+        box-shadow: 0 3px 5px #ccc;
+        transition: .2s;
+    }
+
+    body {
+        transition: background 0.2s, color 0.2s;
+    }
+
+        body.scrolled {
+            background: #f5f5f5;
+            color: #444;
+        }
+</style>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+               Ngày lập
+            </th>
+            <th>
+                Tiền điện
+            </th>
+            <th>
+                Tiền nước
+            </th>
+            <th>
+                Tổng tiền
+            </th>
+            <th>
+                Hợp đồng ngày
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        
+        @foreach (var item in ViewBag.ListHoaDon)
+        {
+            <tr>
+                <td>
+                    @item.NgayLap
+                </td>
+                <td>
+                    @string.Format("{0:#,##0}", item.TienDien) VNĐ
+                </td>
+                <td>
+                    @string.Format("{0:#,##0}", item.TienNuoc) VNĐ
+                </td>
+                <td>
+                    @string.Format("{0:#,##0}", item.TongTien) VNĐ
+                </td>
+               <td>
+                    @item.IdHopdongNavigation.NgayBatDau
+               </td>
+               
+            </tr>
+        }
+    </tbody>
+</table>
+
+

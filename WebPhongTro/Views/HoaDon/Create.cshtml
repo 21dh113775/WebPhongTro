@@ -1,0 +1,97 @@
+﻿@model WebPhongTro.Models.HoaDon
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_ManageLayout.cshtml";
+}
+<div class="main-content">
+    <style>
+        /* Bố cục */
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .row {
+            max-width: 800px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .col-md-4 {
+            max-width: 500px;
+            width: 100%;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        form {
+            width: 100%;
+        }
+
+        /* Căn chỉnh các phần tử */
+        label {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px 15px;
+        }
+
+        .btn {
+            width: 100%;
+            margin-top: 20px;
+        }
+    </style>
+<h1>TẠO MỚI</h1>
+
+<h4>Hóa Đơn</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="IdHoadon" class="control-label"></label>
+                <input asp-for="IdHoadon" class="form-control" />
+                <span asp-validation-for="IdHoadon" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdHopdong" class="control-label"></label>
+                <select asp-for="IdHopdong" class ="form-control" asp-items="ViewBag.IdHopdong"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="NgayLap" class="control-label"></label>
+                <input asp-for="NgayLap" class="form-control" />
+                <span asp-validation-for="NgayLap" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TienDien" class="control-label"></label>
+                <input asp-for="TienDien" class="form-control" />
+                <span asp-validation-for="TienDien" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TienNuoc" class="control-label"></label>
+                <input asp-for="TienNuoc" class="form-control" />
+                <span asp-validation-for="TienNuoc" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+ </div>

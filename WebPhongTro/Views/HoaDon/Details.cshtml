@@ -1,0 +1,111 @@
+﻿@model WebPhongTro.Models.HoaDon
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_ManageLayout.cshtml";
+}
+<div class="main-content">
+
+    <style>
+        /* Font chữ */
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        /* Layout */
+        .main-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Tiêu đề */
+        h1, h4 {
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 32px;
+            color: #007bff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Nội dung */
+        dl {
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px #ccc;
+        }
+
+        dt {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        dd {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        /* Nút */
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background: #007bff;
+            color: #fff;
+            cursor: pointer;
+            transition: .3s ease;
+        }
+
+            .btn:hover {
+                opacity: 0.8;
+            }
+    </style>
+<h1>Chi Tiết</h1>
+
+<div>
+    <h4>HoaDon</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NgayLap)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NgayLap)
+        </dd>
+          
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TienDien)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TienDien)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TienNuoc)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TienNuoc)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TongTien)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TongTien)
+        </dd>
+      @*  <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.IdHopdongNavigation)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IdHopdongNavigation.IdHopdong)
+        </dd>*@
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.IdHoadon">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
+</div>

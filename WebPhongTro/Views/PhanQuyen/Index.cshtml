@@ -1,40 +1,40 @@
-﻿@model WebPhongTro.Models.AspNetUser
-
+﻿
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_ManageLayout.cshtml";
 }
-
-<h1>Index</h1>
-
-<h4>AspNetUser</h4>
+<div class="main-content">
+<h1>Phân Quyền</h1>
+    
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Index">
             <div class="form-group">
-                <select>
-                    <option value="" selected>Chọn đơn vị</option>
+                <select name="idUser">
+                    <option value="" selected>Chọn user</option>
                     @foreach (var item in ViewBag.User)
                     {
-                        <option>@item.UserName</option>
+                        <option value="@item.Id">@item.UserName</option>
                     }
                 </select>
             </div>
             <div class="form-group">
-                <select>
-                    <option value="" selected>Chọn đơn vị</option>
+                <select name="idQuyen">
+                    <option value="" selected>Chọn quyền</option>
                     @foreach (var item in ViewBag.Role)
                     {
-                        <option>@item.Name</option>
+                        <option value="@item.Id">@item.Name</option>
                     }
                 </select>
             </div>
+            <button type="submit">OK</button>
         </form>
     </div>
 </div>
 
 <div>
     <a asp-action="Index">Back to List</a>
+</div>
 </div>
 

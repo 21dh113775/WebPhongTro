@@ -5,117 +5,109 @@
     Layout = "~/Views/Shared/_ManageLayout.cshtml";
 }
 
-@*<h1>Index</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.UserName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.NormalizedUserName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Email)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.NormalizedEmail)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.EmailConfirmed)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PasswordHash)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SecurityStamp)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ConcurrencyStamp)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PhoneNumber)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PhoneNumberConfirmed)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TwoFactorEnabled)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LockoutEnd)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LockoutEnabled)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AccessFailedCount)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.UserName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NormalizedUserName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NormalizedEmail)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EmailConfirmed)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PasswordHash)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SecurityStamp)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ConcurrencyStamp)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PhoneNumber)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PhoneNumberConfirmed)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TwoFactorEnabled)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LockoutEnd)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LockoutEnabled)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AccessFailedCount)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>*@
+ 
 
 <div class="main-content">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f2f4f5;
+        }
 
-<div class="main-content">
+        .main-content {
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #ddd;
+        }
+
+        h2 {
+            font-weight: 600;
+            font-size: 28px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-bottom: 40px;
+        }
+
+        th,
+        td {
+            text-align: left;
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: salmon;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f4f5;
+        }
+
+        .btn {
+            padding: 6px 12px;
+            border-radius: 4px;
+            border: none;
+            color: #fff;
+            background-image: linear-gradient(to right,initial);
+            transition: 0.3s ease;
+        }
+
+            .btn:hover {
+                opacity: 0.8;
+            }
+        /* Nút Edit */
+        .e1 {
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            padding: 8px 10px;
+            border-radius: 4px;
+            transition: 0.3s ease;
+        }
+
+            .e1:hover {
+                background-color: #2980b9;
+            }
+
+            .e1 i {
+                font-size: 1.2em;
+            }
+
+        /* Nút Delete */
+        .e2 {
+            background-color: #e74c3c;
+            color: #fff;
+            border: none;
+            padding: 8px 10px;
+            border-radius: 4px;
+            transition: 0.3s ease;
+        }
+
+            .e2:hover {
+                background-color: #c0392b;
+            }
+
+            .e2 i {
+                font-size: 1.2em;
+            }
+    </style>
     <div class="page-header">
         <h2 class="header-title">User</h2>
         <div class="header-sub-title">
@@ -182,12 +174,12 @@
                                 <td>@item.PhoneNumber</td>
                                 <td class="text-right">
                                     <a href="/Users/Edit/@item.Id ">
-                                        <button class="btn btn-icon btn-hover btn-sm btn-rounded pull-right">
+                                        <button class="e1">
                                             <i class="anticon anticon-edit"></i>
                                         </button>
                                     </a>
                                     <a href="/Users/Delete/@item.Id ">
-                                        <button class="btn btn-icon btn-hover btn-sm btn-rounded text-danger">
+                                        <button class="e2">
                                             <i class="anticon anticon-delete"></i>
                                         </button>
                                     </a>

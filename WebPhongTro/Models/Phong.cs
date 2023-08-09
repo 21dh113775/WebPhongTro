@@ -7,7 +7,6 @@ namespace WebPhongTro.Models
     {
         public Phong()
         {
-
             HopDongs = new HashSet<HopDong>();
             VatDungs = new HashSet<VatDung>();
         }

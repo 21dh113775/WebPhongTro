@@ -1,0 +1,118 @@
+﻿@model IEnumerable<WebPhongTro.Models.HoaDon>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_ManageLayout.cshtml";
+}
+<div class="main-content">
+<h1>HÓA ĐƠN</h1>
+
+<style>
+        /* Bo tròn góc */
+        .main-content {
+            border-radius: 30px;
+        }
+
+        table {
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        th, td {
+            border-radius: 8px;
+        }
+
+        /* Bóng cho các phần tử */
+         
+        h1 {
+            text-shadow: 2px 2px 0 rgba(0,0,0,0.2); /* Bóng chữ */
+        }
+
+        /* Viền ngoài */
+        body {
+            border: 20px solid #e9e9e9;
+        }
+
+        /* Viền trong */
+        table {
+            border: 1px solid #ddd;
+            caption-side: bottom; /* Chú thích dưới */
+            empty-cells: hide; /* Ẩn ô trống */
+        }
+
+        /* Các phần tử con */
+        th,
+        td {
+            border: 1px solid #ccc;
+        }
+
+        /* Các CSS rules khác */
+
+        /* Tô đậm link */
+        a {
+            font-weight: bold;
+        }
+
+            /* Hiệu ứng tương tác */
+            a:active {
+                color: #58287F;
+            }
+
+        /* Chuyển động */
+        h1:hover {
+            transform: scale(1.05);
+        }
+
+</style>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NgayLap)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TienDien)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TienNuoc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TongTien)
+            </th>
+            <th>
+                 Hợp Đồng
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgayLap)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TienDien)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TienNuoc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TongTien)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdHopdongNavigation.IdHopdong)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdHoadon">Chỉnh sửa</a> |
+                <a asp-action="Details" asp-route-id="@item.IdHoadon">Chi Tiết</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdHoadon">Xóa</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</div>

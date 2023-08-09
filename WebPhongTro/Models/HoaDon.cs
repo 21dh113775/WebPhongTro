@@ -8,7 +8,9 @@ namespace WebPhongTro.Models
         public int IdHoadon { get; set; }
         public int? IdHopdong { get; set; }
         public DateTime? NgayLap { get; set; }
-        public double? SoTien { get; set; }
+        public int? TienDien { get; set; }
+        public int? TienNuoc { get; set; }
+        public int? TongTien { get; set; }
 
         public virtual HopDong? IdHopdongNavigation { get; set; }
     }

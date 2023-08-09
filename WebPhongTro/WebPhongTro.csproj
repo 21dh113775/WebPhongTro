@@ -9,6 +9,7 @@
   <ItemGroup>
     <Folder Include="Data\" />
     <Folder Include="Migrations\" />
+    <Folder Include="ModelView\" />
     <Folder Include="wwwroot\lib\bootstrap\" />
     <Folder Include="wwwroot\lib\bootstrap\dist\css\" />
     <Folder Include="wwwroot\lib\bootstrap\dist\js\" />
